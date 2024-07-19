@@ -1,0 +1,24 @@
+repos:
+  - repo: local
+    hooks:
+      - id: commit-msg
+        name: Commit Message Checker
+        entry: .git/hooks/commit-msg
+        language: script
+        stages: [commit-msg]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: detect-private-key
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-added-large-files
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1
+    hooks:
+      - id: isort
